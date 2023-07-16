@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from Blog.forms import PostAddModelForm
+from django.shortcuts import render, redirect
+from Posts.forms import PostAddModelForm
 from Posts.models import Post
 
 
@@ -12,13 +12,20 @@ def show_index_page(request):
 
 
 def show_post_page(request, id):
+    if request.method == "POST":
+        post = Post.objects.get(pk=id)
+        post.Likes += 1
+        post.save()
     context = {"Post": Post.objects.get(pk=id)}
     return render(request, "post.html", context=context)
 
 
 def show_add_post_page(request):
     if request.method == "POST":
-        ...
+        form = PostAddModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("index")
     else:
         form = PostAddModelForm()
 

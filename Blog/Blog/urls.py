@@ -21,6 +21,6 @@ from Posts.views import show_index_page, show_post_page, show_add_post_page
 urlpatterns = [
     path('', show_index_page, name="index"),
     path('post/<int:id>', show_post_page),
-    path('addPost/', show_add_post_page),
+    path('addPost/', show_add_post_page, name="add_post"),
     path('admin/', admin.site.urls),
 ]
