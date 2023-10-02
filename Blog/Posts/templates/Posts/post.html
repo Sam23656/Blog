@@ -8,8 +8,11 @@
         <p>Автор - {{Post.Author}}</p>
         <p>Название - {{Post.Title}}</p>
         <p>Текст - {{Post.Text}}</p>
-        <button class="btn btn-primary" type="submit" style="width:100px; align-self:center">Likes {{Post.Likes}}
-        </button>
+        <button class="btn btn-primary" type="submit" style="width:100px; align-self:center">Likes {{Post.Likes}}</button>
+        {% if request.user == Post.Author  or request.user.is_superuser %}
+        <p class="mt-2"><a href="{% url 'edit_post' Post.pk %}" class="btn btn-primary">Редактировать</a></p>
+        <p class="mt-2"><a href="{% url 'delete_post' Post.pk %}" class="btn btn-primary">Удалить</a></p>
+        {% endif %}
     </div>
 </form>
 {% endblock %}

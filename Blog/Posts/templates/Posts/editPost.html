@@ -1,0 +1,13 @@
+{% extends "Posts/base.html" %}
+{% load static %}
+{% block title %} Edit Post {% endblock %}
+
+{% block content %}
+    <div class="main d-flex flex-row align-items-center justify-content-center">
+    <form class="main d-flex flex-column align-items-center justify-content-center" method="post" style="width: 500px;">
+    {% csrf_token %}
+    {{form}}
+    <button style="margin-top: 10px;" class="btn btn-primary" type="submit">Edit</button>
+    </form>
+</div>
+{% endblock %}

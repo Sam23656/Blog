@@ -28,10 +28,12 @@
             </ul>
             {% if user.is_authenticated %}
             <p class="navbar-text">Пользователь {{request.user}}</p>
+            <p class="ms-2"><a class="btn btn-primary" href="{% url 'change_password' %}">Сменить пароль</a ></p>
             <p class="ms-2"><a class="btn btn-primary" href="{% url 'logout' %}">Выйти</a></p>
             {% else %}
             <p class="ms-2"><a class="btn btn-primary" href="{% url 'login' %}">Войти</a></p>
             <p class="ms-2"><a class="btn btn-primary" href="{% url 'register' %}">Зарегистрироваться</a></p>
+            <p class="ms-2"><a class="btn btn-primary" href="{% url 'password_reset' %}">Сбросить пароль</a></p>
             {% endif %}
           </div>
         </div>

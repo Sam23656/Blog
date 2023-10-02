@@ -1,0 +1,14 @@
+{% extends "Posts/base.html" %}
+{% load static %}
+{% block title %} Delete Post {% endblock %}
+
+{% block content %}
+    <div class="main d-flex flex-row align-items-center justify-content-center">
+    <form class="main d-flex flex-column align-items-center justify-content-center" method="post" style="width: 500px;">
+    {% csrf_token %}
+    <p>Are you sure you want to delete this post?</p>
+    <button style="margin-top: 10px;" class="btn btn-primary" type="submit">Yes</button>
+    <p><a class=" mt-2 btn btn-primary" href="{% url 'post' PostPk %}">No</a></p>
+    </form>
+</div>
+{% endblock %}
