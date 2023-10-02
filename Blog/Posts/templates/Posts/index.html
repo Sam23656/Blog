@@ -1,0 +1,18 @@
+{% extends "Posts/base.html" %}
+
+{% block title %} Index {% endblock %}
+
+{% block content %}
+<div style="display: flex; flex-wrap: wrap; flex:1;">
+    {% for Post in Posts %}
+    <div style="background-color: #383f46; border-radius: 3%; width: 300px; border: 1px solid black; margin-right: 10px; ; margin-bottom: 10px; text-align: center; padding-right: 10px;">
+        <p style="margin: 10px;">Название - {{Post.Title}}</p>
+        <p style="margin: 10px;"> Лайки - {{Post.Likes}}</p>
+        <p><a href="{% url 'post' Post.pk %}" name="add_button" class="btn btn-primary"
+              style="margin-top: 20px;  margin: 10px; border: 1px solid #63707c; border-radius: 3%;color: white;  text-decoration: none;">Перейти
+            к посту</a></p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

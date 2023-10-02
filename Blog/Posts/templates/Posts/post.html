@@ -1,0 +1,15 @@
+{% extends "Posts/base.html" %}
+{% block title %} Post {% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div style="display: flex; flex-direction: column; margin: auto; margin-top: 50px; border: 1px solid #63707c; width: 300px; border-radius: 3%; background-color: #383f46;">
+        <p>Автор - {{Post.Author}}</p>
+        <p>Название - {{Post.Title}}</p>
+        <p>Текст - {{Post.Text}}</p>
+        <button class="btn btn-primary" type="submit" style="width:100px; align-self:center">Likes {{Post.Likes}}
+        </button>
+    </div>
+</form>
+{% endblock %}
